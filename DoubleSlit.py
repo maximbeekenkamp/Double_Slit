@@ -19,8 +19,14 @@ I = []#[[0 for m in range(0,a) ] for n in range(0,b)]
 X = []
 Y = []
 
+
 for x in range (0, b):
-	I.append(I_initial*math.cos(((math.pi*d*math.sin(Theta))/(wl))*(((math.sin(math.pi*W*math.sin(Theta/wl))/(math.pi*W*math.sin(Theta/wl))))**2))**2)
+	p = (math.pi*d*math.sin(Theta))/(wl)
+	q = math.pi*W*math.sin(Theta/wl)
+	r = math.pi*W*math.sin(Theta/wl)
+	s = math.cos(p)**2
+	t = ((math.sin(q))/(r))**2	
+	I.append(I_initial*s*t)
 	print (I[x])
 	Y.append(I[x])
 	X.append(Theta)
