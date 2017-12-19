@@ -20,10 +20,10 @@ X = []
 Y = []
 
 for x in range (0, b):
-	I[x] = I_initial*math.cos(((math.pi*d*math.sin(Theta))/(wl))*(((math.sin(math.pi*W*math.sin(Theta/wl))/(math.pi*W*math.sin(Theta/wl))))**2))**2
+	I.append(I_initial*math.cos(((math.pi*d*math.sin(Theta))/(wl))*(((math.sin(math.pi*W*math.sin(Theta/wl))/(math.pi*W*math.sin(Theta/wl))))**2))**2)
 	print (I[x])
-	X = I[x]
-	Y = Theta
+	Y.append(I[x])
+	X.append(Theta)
 	Theta = Theta + 0.01
 
 plt.plot(X,Y)
