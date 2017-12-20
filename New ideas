@@ -13,8 +13,8 @@ d = 10**-5 #input("Enter distance between slits: ")
 D = 0.8 #input("Enter distance between slits and the screen: ")
 I_initial = 1 #input("Enter initial intensity of light: ")
 Theta = min_theta #math.atan(x/D)
-N_photon = 10000
-N_hits = 0
+N_photon = 1000
+
 One_or_Two = 0
 Y = True
 N = False
@@ -31,7 +31,8 @@ Y_rand = 0
 
 X = []
 Y = []
-
+x = []
+y = []
 def two_slits(Angle):
 	p = (PI*d*math.sin(Angle))/(wl)
 	q = PI*a*math.sin(Angle)/wl
@@ -45,14 +46,15 @@ def one_slit(angle):
 	return I_initial*s
 
 def experiment(N):
-	Box = [[0 for m in range(0, 2) ] for n in range(0,N)]
+	N_hits = 0	
 	while N_hits != N:
 		X_rand = random.uniform(min_theta,max_theta)
 		Y_rand = random.uniform(0,1)
 		if two_slits(X_rand)>= Y_rand:
-			Box[N_hits] = [X_rand, Y_rand]
+			y.append(X_rand)
+			y.append(Y_rand)
 			N_hits = N_hits + 1
-	return Box
+	return x,y
 
 if One_or_Two == True:
 	for x in range (0, steps):	
