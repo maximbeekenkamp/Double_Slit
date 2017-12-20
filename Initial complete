@@ -1,0 +1,37 @@
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+PI=math.pi
+min_theta=-PI/3
+max_theta = +PI/3
+steps = 1000
+step_theta = (max_theta-min_theta)/steps
+#c = 299792458
+#h = 6.62607004*10**-34
+wl = 4*10**-7 #input("Enter wavelength of the light: ")
+#E = h*f
+#x = 0.03
+a = 10**-6 #input("Enter width of slits: ")
+d = 10**-5 #input("Enter distance between slits: ")
+D = 0.8 #input("Enter distance between slits and the screen: ")
+I_initial = 1 #input("Enter initial intensity of light: ")
+Theta = min_theta #math.atan(x/D)
+#F = [[0 for m in range(0,a+1) ] for n in range(0,b)]
+I = []#[[0 for m in range(0,a) ] for n in range(0,b)]
+
+X = []
+Y = []
+
+for x in range (0, steps):
+	p = (PI*d*math.sin(Theta))/(wl)
+	q = PI*a*math.sin(Theta)/wl
+	s = pow(math.cos(p),2)
+	t = pow((math.sin(q)/q),2)
+	I.append(I_initial*s*t)
+	#print (I[x])
+	Y.append(I[x])
+	X.append(Theta)
+	Theta = Theta + step_theta
+
+plt.plot(X,Y)
+plt.show()
