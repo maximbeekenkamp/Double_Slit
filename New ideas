@@ -52,7 +52,6 @@ def experiment(N):
 		if two_slits(X_rand)>= Y_rand:
 			Box[N_hits] = [X_rand, Y_rand]
 			N_hits = N_hits + 1
-		else:
 	return Box
 
 if One_or_Two == True:
@@ -60,7 +59,6 @@ if One_or_Two == True:
 		X.append(Theta)
 		Y.append(one_slit(Theta))
 		Theta= Theta + step_theta
-
 	plt.plot(X,Y)
 	plt.show()
 else:
